@@ -8,10 +8,16 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM node:22-alpine AS runner
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
+RUN npm install -g serve
 
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/dist ./dist
+
+ENV PORT=3000
+
+EXPOSE 3000
+
+CMD ["sh", "-c", "serve -s dist -l ${PORT}"]
