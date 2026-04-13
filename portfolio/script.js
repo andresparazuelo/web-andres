@@ -213,7 +213,7 @@ app.innerHTML = `
         <div class="portfolio-block">
           <h3 class="portfolio-block-title">Herramientas desarrolladas</h3>
           <div class="portfolio-grid portfolio-grid--tools">
-            <article class="panel stagger tool-card">
+            <article class="panel tool-card">
               <div class="tool-card-header">
                 <span class="tool-badge">SEO Tool</span>
               </div>

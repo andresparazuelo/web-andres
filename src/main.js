@@ -211,6 +211,31 @@ app.innerHTML = `
         </div>
 
         <div class="portfolio-block">
+          <h3 class="portfolio-block-title">Herramientas desarrolladas</h3>
+          <div class="portfolio-grid portfolio-grid--tools">
+            <article class="panel tool-card">
+              <div class="tool-card-header">
+                <span class="tool-badge">SEO Tool</span>
+              </div>
+              <h4>Herramienta de optimización SEO integrada en CMS propio</h4>
+              <p>
+                Desarrollé e integré una herramienta de auditoría SEO dentro del CMS de Fundy,
+                diseñada para sitios construidos en código. Analiza cada artículo en tiempo real
+                y genera una puntuación con checks accionables, sin depender de WordPress ni
+                plugins externos.
+              </p>
+              <ul class="bullet-list">
+                <li>Puntuación SEO sobre 100 con desglose de correctos, mejorables y errores.</li>
+                <li>Checks de título, slug, resumen, keywords y estructura de contenido.</li>
+                <li>Panel SEO con meta title, meta description, keywords y URL canónica.</li>
+                <li>Vista previa del snippet en Google antes de publicar.</li>
+                <li>Recomendaciones de alto impacto priorizadas por relevancia.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="portfolio-block">
           <h3 class="portfolio-block-title">Contenido social media</h3>
           <div class="portfolio-grid portfolio-grid--social">
             <article class="portfolio-item stagger">
