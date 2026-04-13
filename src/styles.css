@@ -849,6 +849,30 @@ section {
   margin: 0;
 }
 
+    .tool-card-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.tool-card-gallery img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.tool-card-gallery img:hover {
+  border-color: var(--accent);
+  transform: scale(1.03);
+}
+
+
+
+
 .portfolio-item {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -1081,6 +1105,37 @@ section {
   border-color: rgba(255, 255, 255, 0.4);
   background: rgba(255, 255, 255, 0.08);
 }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.lightbox-nav:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.lightbox-prev {
+  left: 24px;
+}
+
+.lightbox-next {
+  right: 24px;
+}
+
 
 /* ═══════════════════════════════════════════════════════════
    Responsive

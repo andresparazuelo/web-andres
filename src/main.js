@@ -182,7 +182,9 @@ app.innerHTML = `
           <div class="portfolio-grid portfolio-grid--web">
             <article class="portfolio-item stagger">
               <div class="portfolio-preview">
-                <img src="/assets/portfolio/fundy.jpg" alt="Fundy" />
+                <a href="https://fundy.es" target="_blank" rel="noreferrer">
+                  <img src="/assets/portfolio/fundy.jpg" alt="Fundy" />
+                </a>
               </div>
               <div class="portfolio-meta">
                 <h4>Fundy</h4>
@@ -191,7 +193,9 @@ app.innerHTML = `
             </article>
             <article class="portfolio-item stagger">
               <div class="portfolio-preview">
-                <img src="/assets/portfolio/fundocs.png" alt="FunDocs" />
+                <a href="https://start.fundocs.es" target="_blank" rel="noreferrer">
+                  <img src="/assets/portfolio/fundocs.png" alt="FunDocs" />
+                </a>
               </div>
               <div class="portfolio-meta">
                 <h4>FunDocs</h4>
@@ -200,7 +204,9 @@ app.innerHTML = `
             </article>
             <article class="portfolio-item stagger">
               <div class="portfolio-preview">
-                <img src="/assets/portfolio/fundy-snk.jpg" alt="Fundy SNK" />
+                <a href="https://sneaker.fundy.es" target="_blank" rel="noreferrer">
+                  <img src="/assets/portfolio/fundy-snk.jpg" alt="Fundy SNK" />
+                </a>
               </div>
               <div class="portfolio-meta">
                 <h4>Fundy SNK</h4>
@@ -216,6 +222,12 @@ app.innerHTML = `
             <article class="panel tool-card">
               <div class="tool-card-header">
                 <span class="tool-badge">SEO Tool</span>
+              </div>
+              <div class="tool-card-gallery">
+                <img src="/assets/portfolio/seo-tool-1.jpeg" alt="SEO Tool - Puntuación SEO" />
+                <img src="/assets/portfolio/seo-tool-2.jpeg" alt="SEO Tool - Checks SEO" />
+                <img src="/assets/portfolio/seo-tool-3.jpeg" alt="SEO Tool - Panel SEO" />
+                <img src="/assets/portfolio/seo-tool-4.png" alt="SEO Tool - Vista previa snippet" />
               </div>
               <h4>Herramienta de optimización SEO integrada en CMS propio</h4>
               <p>
@@ -327,6 +339,8 @@ app.innerHTML = `
 
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" id="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</button>
     <img src="" alt="" id="lightbox-img" />
   </div>
 `;
@@ -361,16 +375,18 @@ document.querySelectorAll('.reveal').forEach((el) => {
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxClose = document.getElementById('lightbox-close');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const lightboxImages = [...document.querySelectorAll('.portfolio-preview--social img, .tool-card-gallery img')];
+let lightboxIndex = 0;
 
-document.querySelectorAll('.portfolio-preview--social img').forEach((img) => {
-  img.style.cursor = 'pointer';
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  });
-});
+function openLightbox(index) {
+  lightboxIndex = index;
+  lightboxImg.src = lightboxImages[index].src;
+  lightboxImg.alt = lightboxImages[index].alt;
+  lightbox.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
 
 function closeLightbox() {
   lightbox.classList.remove('is-open');
@@ -378,10 +394,25 @@ function closeLightbox() {
   lightboxImg.src = '';
 }
 
+function navigateLightbox(dir) {
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  lightboxImg.src = lightboxImages[lightboxIndex].src;
+  lightboxImg.alt = lightboxImages[lightboxIndex].alt;
+}
+
+lightboxImages.forEach((img, i) => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => openLightbox(i));
+});
+
 lightboxClose.addEventListener('click', closeLightbox);
+lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(-1); });
+lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigateLightbox(1); });
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) closeLightbox();
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') navigateLightbox(1);
+  if (e.key === 'ArrowLeft') navigateLightbox(-1);
 });
