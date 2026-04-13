@@ -6,7 +6,13 @@ app.innerHTML = `
   <div class="page-shell">
     <header class="hero">
       <nav class="topbar glass">
-        <div class="brand">AP.</div>
+        <div class="brand">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="24" height="24" rx="6" stroke="url(#g)" stroke-width="2" fill="none"/>
+            <path d="M8 18L14 8L20 18" stroke="url(#g)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs><linearGradient id="g" x1="0" y1="0" x2="28" y2="28"><stop stop-color="#00E5FF"/><stop offset="1" stop-color="#7B2FF7"/></linearGradient></defs>
+          </svg>
+        </div>
         <div class="nav-links">
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#experiencia">Experiencia</a>
@@ -24,7 +30,7 @@ app.innerHTML = `
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">SEO &middot; Contenidos &middot; Social Media</p>
-          <h1>Contenido y estrategia digital para marcas que quieren ser visibles.</h1>
+          <h1>Especialista en Marketing Digital y SEO.</h1>
           <p class="lead">
             Trabajo en SEO, creación de contenidos y gestión de redes con un enfoque
             práctico: analizar, ejecutar, medir y mejorar. No soy un consultor que solo
@@ -38,7 +44,7 @@ app.innerHTML = `
 
         <aside class="hero-card glass">
           <p class="card-label">Perfil</p>
-          <h2>Andrés Parazuelo</h2>
+          <span class="hero-name">Andrés Parazuelo</span>
           <ul>
             <li>Marketing Digital & SEO Specialist</li>
             <li>Co-Founder & Marketing Manager en Fundy</li>
@@ -320,13 +326,7 @@ app.innerHTML = `
                 <p>parazueloandres@gmail.com</p>
               </div>
             </a>
-            <a class="contact-card glass" href="/assets/CV_Andres_Parazuelo_Albarran.pdf" target="_blank" rel="noreferrer">
-              <span class="contact-icon">&#8595;</span>
-              <div>
-                <strong>Currículum</strong>
-                <p>Descargar PDF</p>
-              </div>
-            </a>
+
           </div>
         </div>
       </section>
