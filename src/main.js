@@ -44,7 +44,7 @@ app.innerHTML = `
             <li>Co-Founder & Marketing Manager en Fundy</li>
           </ul>
           <div class="hero-card-links">
-            <a href="https://www.linkedin.com/in/andresparazuelo" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/andres-parazuelo-740410241/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a href="mailto:parazueloandres@gmail.com">Email</a>
           </div>
         </aside>
@@ -269,7 +269,7 @@ app.innerHTML = `
             no solo que planifique, me gustaría hablar contigo.
           </p>
           <div class="contact-grid">
-            <a class="contact-card glass" href="https://www.linkedin.com/in/andresparazuelo" target="_blank" rel="noreferrer">
+            <a class="contact-card glass" href="https://www.linkedin.com/in/andres-parazuelo-740410241/" target="_blank" rel="noreferrer">
               <span class="contact-icon">&#9672;</span>
               <div>
                 <strong>LinkedIn</strong>
